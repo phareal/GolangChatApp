@@ -24,7 +24,7 @@ func reader(conn *websocket.Conn) {
 			log.Println(err)
 			return
 		}
-		fmt.Println(string(p))
+		fmt.Println(string(p)) // we get the data send fro
 
 		if err := conn.WriteMessage(messageType, p); err != nil {
 			log.Println(err)

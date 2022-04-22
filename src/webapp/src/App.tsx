@@ -1,9 +1,18 @@
-import { useState } from 'react'
+import {useEffect, useState} from 'react'
 import logo from './logo.svg'
 import './App.css'
+import {connect, sendMsg} from "./api";
 
 function App() {
   const [count, setCount] = useState(0)
+  useEffect(()=>{
+     connect()
+  })
+
+  function send(){
+    console.log('Hello dude')
+    sendMsg("hello from  the app")
+  }
 
   return (
     <div className="App">
@@ -11,7 +20,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
+          <button type="button" onClick={() => send() }>
             count is: {count}
           </button>
         </p>
